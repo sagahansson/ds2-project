@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+    <query name="population">
+        <parameters>
+          <parameter predicate="selected_country" format="grammar_entry"/>
+        </parameters>
+        <target>
+          <http endpoint="http://http-service/population"/>
+        </target>
+    </query>
+    <query name="capital">
+      <parameters>
+        <parameter predicate="selected_country" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/capital"/>
+      </target>
+    </query>
+    <query name="neighbours">
+      <parameters>
+        <parameter predicate="selected_country" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/neighbours"/>
+      </target>
+    </query>
+    <query name="size">
+      <parameters>
+        <parameter predicate="selected_country" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/size"/>
+      </target>
+    </query>
+    <query name="language">
+      <parameters>
+        <parameter predicate="selected_country" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/language"/>
+      </target>
+    </query>
+
+</service_interface>

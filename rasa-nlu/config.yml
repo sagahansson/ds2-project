@@ -1,0 +1,20 @@
+language: "en"
+
+pipeline:
+  - name: HFTransformersNLP
+    model_name: "bert"
+    model_weights: "bert-base-uncased"
+    cache_dir: lfs
+  - name: LanguageModelTokenizer
+  - name: LanguageModelFeaturizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 200
+  - name: EntitySynonymMapper
+

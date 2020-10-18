@@ -1,0 +1,30 @@
+--- main menu
+S> What would you like to do?
+
+--- pop 
+U> what is the population of iraq
+S> It's *.
+
+--- pop inc
+U> population
+S> Which country?
+U> iraq
+S> It's *.
+
+--- capital
+U> what's iraq's capital
+S> It's *.
+
+--- capital inc
+U> a capital
+S> Which country?
+U> iraq
+S> It's *.
+
+--- nei funkar inte pga tar för lång tid i http_service?
+U> what are the neighbours of iraq
+S> It's *.
+
+--- size
+U> how big is iraq
+S> It's *.

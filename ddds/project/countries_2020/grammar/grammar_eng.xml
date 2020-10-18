@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+<action name="top">
+  <one-of>
+    <item>main menu</item>
+    <item>top</item>
+    <item>beginning</item>
+    <item>cancel</item>
+    <item>forget it</item>
+    <item>never mind</item>
+    <item>abort</item>
+  </one-of>
+</action>
+
+<action name="up">
+  <one-of>
+    <item>up</item>
+    <item>back</item>
+    <item>go back</item>
+  </one-of>
+</action>
+
+<!-- main q's -->
+
+<question type="wh_question" predicate="selected_country" speaker="system">Which country</question>
+
+
+<!-- population -->
+
+<question speaker="all" predicate="population" type="wh_question">the population</question>
+
+<question speaker="user" predicate="population" type="wh_question">
+  <one-of>
+    <item>what is the population of <slot predicate="selected_country" type="individual"/></item>
+    <item>how many people live in <slot predicate="selected_country" type="individual"/></item>
+    <item>how big is the population of <slot predicate="selected_country" type="individual"/></item>
+    <item><slot predicate="selected_country" type="individual"/> population</item>
+    <item>number of people in <slot predicate="selected_country" type="individual"/></item>
+    <item><slot predicate="selected_country" type="individual"/>'s population</item>
+    <item><slot predicate="selected_country" type="individual"/> population</item>
+    <item>population</item>
+  </one-of>
+</question>
+  
+  <question speaker="system" predicate="population" type="wh_question">the population</question>
+  
+  <answer speaker="system" predicate="population">It's<slot predicate="population"/></answer>
+
+  <!-- capital -->
+
+  <question speaker="all" predicate="capital" type="wh_question">the capital</question>
+
+  <question speaker="user" predicate="capital" type="wh_question">
+    <one-of>
+      <item>what is the capital of <slot predicate="selected_country" type="individual"/></item>
+      <item>what's <slot predicate="selected_country" type="individual"/> capital</item>
+      <item>capital in <slot predicate="selected_country" type="individual"/></item>
+      <item><slot predicate="selected_country" type="individual"/> capital</item>
+      <item>the capital city of <slot predicate="selected_country" type="individual"/></item>
+      <item><slot predicate="selected_country" type="individual"/>'s capital</item>
+      <item><slot predicate="selected_country" type="individual"/> capital</item>
+      <item>capital</item>
+      <item>a capital</item>
+    </one-of>
+  </question>
+    
+    <question speaker="system" predicate="capital" type="wh_question">the capital</question>
+    <answer speaker="system" predicate="capital">It's<slot predicate="capital"/></answer>
+
+    <!--<answer speaker="system" predicate="capital">The capital of <slot predicate="selected_country" type="individual"/> is <slot predicate="capital"/></answer> funkar inte!!! varför?? -->
+  
+  <!-- neighbours -->
+  <question speaker="all" predicate="neighbours" type="wh_question">the neighbouring countries</question>
+
+  <question speaker="user" predicate="neighbours" type="wh_question">
+    <one-of>
+      <item>what countries border to <slot predicate="selected_country" type="individual"/></item>
+      <item>countries next to <slot predicate="selected_country" type="individual"/></item>
+      <item>which countries share a border with <slot predicate="selected_country" type="individual"/></item>
+      <item>what are the neighbouring countries of <slot predicate="selected_country" type="individual"/></item>
+      <item>what are the neighbours of <slot predicate="selected_country" type="individual"/></item>
+      <item>neighbours</item>
+      <item>neighbouring countries</item>
+    </one-of>
+  </question>
+    
+    <question speaker="system" predicate="neighbours" type="wh_question">the neighbouring countries</question>
+    <answer speaker="system" predicate="neighbours">It's<slot predicate="neighbours"/></answer>
+
+
+  <!-- size -->
+
+  <question speaker="all" predicate="size" type="wh_question">the size of a country</question>
+
+  <question speaker="user" predicate="size" type="wh_question">
+    <one-of>
+      <item>how big is<slot predicate="selected_country" type="individual"/></item>
+      <item>what is the size of <slot predicate="selected_country" type="individual"/></item>
+      <item>size <slot predicate="selected_country" type="individual"/></item>
+      <item><slot predicate="selected_country" type="individual"/> size</item>
+      <item>size of <slot predicate="selected_country" type="individual"/></item>
+      <item>size of a country</item>
+      <item>size</item>
+    </one-of>
+  </question>
+    
+    <question speaker="system" predicate="size" type="wh_question">the size of a country</question>
+    <answer speaker="system" predicate="size">It's<slot predicate="size"/></answer>
+
+  <!-- language -->
+
+  <question speaker="all" predicate="language" type="wh_question">the language</question>
+
+  <question speaker="user" predicate="language" type="wh_question">
+    <one-of>
+      <item>what language is spoken in <slot predicate="selected_country" type="individual"/></item>
+      <item>language of <slot predicate="selected_country" type="individual"/></item>
+      <item>which language do you speak in <slot predicate="selected_country" type="individual"/></item>
+      <item><slot predicate="selected_country" type="individual"/> language</item>
+      <item>languages <slot predicate="selected_country" type="individual"/></item>
+      <item>language</item>
+      <item>lang</item>
+    </one-of>
+  </question>
+    
+    <question speaker="system" predicate="language" type="wh_question">the language</question>
+    <answer speaker="system" predicate="language">It's<slot predicate="language"/></answer>
+
+
+  <!-- individuals: countries-->
+
+  <individual name="IRQ">
+    <one-of>
+      <item>Iraq</item>
+      <item>iraq</item>
+      <item>Iraq's</item>
+      <item>iraq's</item>
+      <item>IRQ</item>
+      <item>irq</item>
+    </one-of>
+  </individual>
+
+  <individual name="COG">
+    <one-of>
+      <item>Congo</item>
+      <item>congo</item>
+      <item>Congos's</item>
+      <item>congos's</item>
+      <item>COQ</item>
+      <item>cog</item>
+    </one-of>
+  </individual>
+
+  <individual name="BGD">
+    <one-of>
+      <item>Bangladesh</item>
+      <item>bangladesh</item>
+      <item>Bangladesh's</item>
+      <item>bangladesh's</item>
+      <item>BGD</item>
+      <item>bgd</item>
+    </one-of>
+  </individual>
+
+  <individual name="LBY">
+    <one-of>
+      <item>Libya</item>
+      <item>libya</item>
+      <item>Libya's</item>
+      <item>libya's</item>
+      <item>LBY</item>
+      <item>lby</item>
+    </one-of>
+  </individual>
+</grammar>

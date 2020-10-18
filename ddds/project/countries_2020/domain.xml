@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="Countries2020Domain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+  <goal type="resolve" question_type="wh_question" predicate="population">
+    <plan>
+      <findout type="wh_question" predicate="selected_country"/>
+      <invoke_service_query predicate="population" type="wh_question"/>
+    </plan>
+  </goal>
+  <goal type="resolve" question_type="wh_question" predicate="capital">
+    <plan>
+      <findout type="wh_question" predicate="selected_country"/>
+      <invoke_service_query predicate="capital" type="wh_question"/>
+    </plan>
+  </goal>
+  <goal type="resolve" question_type="wh_question" predicate="neighbours">
+    <plan>
+      <findout type="wh_question" predicate="selected_country"/>
+      <invoke_service_query predicate="neighbours" type="wh_question"/>
+    </plan>
+  </goal>
+  <goal type="resolve" question_type="wh_question" predicate="size">
+    <plan>
+      <findout type="wh_question" predicate="selected_country"/>
+      <invoke_service_query predicate="size" type="wh_question"/>
+    </plan>
+  </goal>
+  <goal type="resolve" question_type="wh_question" predicate="language">
+    <plan>
+      <findout type="wh_question" predicate="selected_country"/>
+      <invoke_service_query predicate="language" type="wh_question"/>
+    </plan>
+  </goal>
+</domain>

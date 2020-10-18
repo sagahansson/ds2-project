@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="Countries2020Ontology">
+  
+  <!--<sort name="subject" dynamic="false"/>-->
+  <sort name="country" dynamic="true"/>
+  <sort name="continent" dynamic="true"/>
+  <sort name="city" dynamic="true"/>
+
+ <!-- <predicate name="continent_to_study" sort="continent"/>-->
+  <!--<predicate name="selected_subject" sort="subject"/>-->
+  <predicate name="selected_country" sort="country"/>
+  <predicate name="selected_continent" sort="continent"/>
+
+  <!-- predicates: subjects -->
+  <predicate name="population" sort="string"/>
+  <predicate name="capital" sort="string"/>
+  <predicate name="neighbours" sort="string"/>
+  <predicate name="size" sort="string"/>
+  <predicate name="language" sort="string"/>
+
+
+  <!--
+    
+what is the population of selected_country
+  <predicate name="wh_population" sort="string"/>
+
+what is the selected_subject(population/size/capital) of selected_country
+  <predicate name="wh_subject" sort="string"/>
+is selected_country in selected_continent
+  <predicate name="yn_country" sort="string"/>
+which selected_continent is selected_country in
+  <predicate name="wh_continent" sort="string"/>
+-->
+
+<!-- individuals: continents -->
+<!--
+  
+  <individual name="africa" sort="continent"/>
+  <individual name="americas" sort="continent"/>
+  <individual name="asia" sort="continent"/>
+  <individual name="europe" sort="continent"/>
+  <individual name="oceania" sort="continent"/>
+-->
+
+
+  <!-- individuals: countries-->
+  <individual name="IRQ" sort="country"/>
+  <individual name="COG" sort="country"/>
+  <individual name="BGD" sort="country"/>
+  <individual name="LBY" sort="country"/>
+  <!--
+  <individual name="ERI" sort="country"/>
+  <individual name="ZMB" sort="country"/>
+  <individual name="BRA" sort="country"/>
+  <individual name="AUT" sort="country"/>
+  <individual name="REU" sort="country"/>
+  <individual name="GLP" sort="country"/>
+  -->
+</ontology>

@@ -1,0 +1,4 @@
+call_john/grammar/build/
+__pycache__/
+.tala/
+logs/
