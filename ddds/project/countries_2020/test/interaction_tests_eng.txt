@@ -21,10 +21,15 @@ S> Which country?
 U> iraq
 S> It's *.
 
---- nei funkar inte pga tar för lång tid i http_service?
+--- nei 
 U> what are the neighbours of iraq
 S> It's *.
 
 --- size
 U> how big is iraq
 S> It's *.
+
+--- continent 
+U> what continent is iraq located in
+S> It's *.
+

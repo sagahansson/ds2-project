@@ -40,5 +40,13 @@
         <http endpoint="http://http-service/language"/>
       </target>
     </query>
+    <query name="continent">
+      <parameters>
+        <parameter predicate="selected_country" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/continent"/>
+      </target>
+    </query>
 
 </service_interface>

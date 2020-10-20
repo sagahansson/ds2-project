@@ -182,15 +182,6 @@ def population():
     print(data)
   return query_response(value=data, grammar_entry=None)
 
-@app.route("/capital", methods=['POST'])
-def capital():
-  payload = request.get_json()
-  country = payload['context']['facts']['selected_country']['value']
-  print("payload: ", payload)
-  data = get_data(country)['capital']
-  print(data)
-  return query_response(value=data, grammar_entry=data)
-
 @app.route("/neighbours", methods=['POST'])
 def neighbours():
   payload = request.get_json()
@@ -205,16 +196,30 @@ def neighbours():
     data.insert(-1, 'and')
   data = ' '.join(data)
   print(data)
-  return query_response(value=data, grammar_entry=data)
+  return query_response(value=data, grammar_entry=None)
+
+def get_simple(subject):
+  # simplest data fetching function, used when no conditions are needed etc
+  payload = request.get_json()
+  country = payload['context']['facts']['selected_country']['value']
+  data = get_data(country)[subject]
+  return data
+
+@app.route("/capital", methods=['POST'])
+def capital():
+  data = get_simple('capital')
+  return query_response(value=data, grammar_entry=None)
 
 @app.route("/size", methods=['POST'])
 def size():
-  payload = request.get_json()
-  country = payload['context']['facts']['selected_country']['value']
-  print("payload: ", payload)
-  data = str(int(get_data(country)['area'])) + ' square kilometers'
-  print(data)
-  return query_response(value=data, grammar_entry=data)
+  data = str(int(get_simple('area'))) + ' square kilometers'
+  return query_response(value=data, grammar_entry=None)
+
+@app.route("/continent", methods=['POST'])
+def continent():
+  data = get_simple('region')
+  return query_response(value=data, grammar_entry=None)
+
 
 @app.route("/language", methods=['POST'])
 def language():
@@ -230,6 +235,5 @@ def language():
     data.insert(-1, 'and')
   data = ' '.join(data)
   print(data)
-  return query_response(value=data, grammar_entry=data)
+  return query_response(value=data, grammar_entry=None)
 
-  

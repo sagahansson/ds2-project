@@ -36,4 +36,10 @@
       <invoke_service_query predicate="language" type="wh_question"/>
     </plan>
   </goal>
+  <goal type="resolve" question_type="wh_question" predicate="continent">
+    <plan>
+      <findout type="wh_question" predicate="selected_country"/>
+      <invoke_service_query predicate="continent" type="wh_question"/>
+    </plan>
+  </goal>
 </domain>

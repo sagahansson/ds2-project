@@ -126,6 +126,24 @@
     <question speaker="system" predicate="language" type="wh_question">the language</question>
     <answer speaker="system" predicate="language">It's<slot predicate="language"/></answer>
 
+  <!-- continent -->
+
+  <question speaker="all" predicate="continent" type="wh_question">the continent</question>
+
+  <question speaker="user" predicate="continent" type="wh_question">
+    <one-of>
+      <item>which continent is <slot predicate="selected_country" type="individual"/>in</item>
+      <item>on which continent is <slot predicate="selected_country" type="individual"/> located</item>
+      <item>what continent is<slot predicate="selected_country" type="individual"/>located in</item>
+      <item><slot predicate="selected_country" type="individual"/> what continent</item>
+      <item><slot predicate="selected_country" type="individual"/> continent</item>
+      <item>continent</item>
+    </one-of>
+  </question>
+    
+    <question speaker="system" predicate="continent" type="wh_question">the continent</question>
+    <answer speaker="system" predicate="continent">It's<slot predicate="continent"/></answer>
+
 
   <!-- individuals: countries-->
 
