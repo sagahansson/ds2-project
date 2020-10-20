@@ -162,6 +162,27 @@ def get_data(code, search_by='alpha'):
     print(json.loads(data))
     return json.loads(data)
 
+@app.route("/simple_query", methods=["POST"])
+def simple_query():
+  # simplest queries go here -- when basically no conditions are needed etc
+  # e g capital, area
+  payload = request.get_json()
+  country = payload['context']['facts']['selected_country']['value']
+  subject = payload['request']['name']
+  data = get_data(country)[subject]
+  if subject == 'area':
+    data = str(int(data)) + ' square kilometers'
+  return query_response(value=data, grammar_entry=None)
+
+def get_and_list(data):
+# takes a list, puts commas at the end of every element except last two, puts "and" between last two elements
+# helper to neighbours, language, search_by_language
+  last_two = data[-2:] # or only two if len(data) = 2
+  data = [n + ',' for n in data[:-2]]
+  data.extend(last_two)
+  data.insert(-1, 'and')
+  return data
+
 
 @app.route("/population", methods=['POST'])
 def population():
@@ -190,34 +211,9 @@ def neighbours():
   data = get_data(country)['borders']
   data = [get_data(neighbour)['name'] for neighbour in data]
   if len(data) > 1:
-    last_two = data[-2:] # or only two if len(data) = 2
-    data = [n + ',' for n in data[:-2]]
-    data.extend(last_two)
-    data.insert(-1, 'and')
+    data = get_and_list(data)
   data = ' '.join(data)
   print(data)
-  return query_response(value=data, grammar_entry=None)
-
-def get_simple(subject):
-  # simplest data fetching function, used when no conditions are needed etc
-  payload = request.get_json()
-  country = payload['context']['facts']['selected_country']['value']
-  data = get_data(country)[subject]
-  return data
-
-@app.route("/capital", methods=['POST'])
-def capital():
-  data = get_simple('capital')
-  return query_response(value=data, grammar_entry=None)
-
-@app.route("/size", methods=['POST'])
-def size():
-  data = str(int(get_simple('area'))) + ' square kilometers'
-  return query_response(value=data, grammar_entry=None)
-
-@app.route("/continent", methods=['POST'])
-def continent():
-  data = get_simple('region')
   return query_response(value=data, grammar_entry=None)
 
 
@@ -229,11 +225,31 @@ def language():
   data = get_data(country)['languages']
   data = [lang['name'] for lang in data]
   if len(data) > 1:
-    last_two = data[-2:] # or only two if len(data) = 2
-    data = [n + ',' for n in data[:-2]]
-    data.extend(last_two)
-    data.insert(-1, 'and')
+    data = get_and_list(data)
   data = ' '.join(data)
   print(data)
   return query_response(value=data, grammar_entry=None)
+
+@app.route("/search_by_language", methods=['POST'])
+def search_by_language():
+  payload = request.get_json()
+  country = payload['context']['facts']['selected_language']['value']
+  data = get_data(country, search_by='lang')
+  data = [lang['name'] for lang in data]
+  if len(data) > 1:
+    data = get_and_list(data)
+  data = ' '.join(data)
+  return query_response(value=data, grammar_entry=None)
+
+@app.route("/search_by_regional_bloc", methods=['POST'])
+def search_by_regional_bloc():
+  payload = request.get_json()
+  country = payload['context']['facts']['selected_regional_bloc']['value']
+  data = get_data(country, search_by='regionalbloc')
+  data = [lang['name'] for lang in data]
+  if len(data) > 1:
+    data = get_and_list(data)
+  data = ' '.join(data)
+  return query_response(value=data, grammar_entry=None)
+
 

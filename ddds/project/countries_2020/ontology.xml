@@ -3,45 +3,68 @@
   
   <!--<sort name="subject" dynamic="false"/>-->
   <sort name="sort_country" dynamic="true"/>
-  <sort name="sort_continent" dynamic="true"/>
+  <sort name="sort_region" dynamic="true"/>
   <sort name="sort_city" dynamic="true"/>
+  <sort name="sort_language" dynamic="true"/>
+  <sort name="sort_regional_bloc" dynamic="true"/>
 
  <!-- <predicate name="continent_to_study" sort="continent"/>-->
   <!--<predicate name="selected_subject" sort="subject"/>-->
   <predicate name="selected_country" sort="sort_country"/>
-  <predicate name="selected_continent" sort="sort_continent"/>
+  <predicate name="selected_region" sort="sort_region"/>
+  <predicate name="selected_language" sort="sort_language"/>
+  <predicate name="selected_regional_bloc" sort="sort_regional_bloc"/>
 
   <!-- predicates: subjects: wh  -->
   <predicate name="population" sort="string"/>
   <predicate name="capital" sort="string"/>
   <predicate name="neighbours" sort="string"/>
-  <predicate name="size" sort="string"/>
+  <predicate name="area" sort="string"/>
   <predicate name="language" sort="string"/>
-  <predicate name ="continent" sort="string"/>
+  <predicate name ="region" sort="string"/>
 
-  <!--
-    
-what is the population of selected_country
-  <predicate name="wh_population" sort="string"/>
+  <!-- predicates: subjects: search_by-->
+  <predicate name="search_by_language" sort="string"/>
+  <predicate name="search_by_regional_bloc" sort="string"/>
 
-what is the selected_subject(population/size/capital) of selected_country
-  <predicate name="wh_subject" sort="string"/>
-is selected_country in selected_continent
+  <!-- glöm ej denna fråga
+is selected_country in selected_region
   <predicate name="yn_country" sort="string"/>
-which selected_continent is selected_country in
-  <predicate name="wh_continent" sort="string"/>
 -->
 
-<!-- individuals: continents -->
+<!-- individuals: regions -->
 <!--
   
-  <individual name="africa" sort="continent"/>
-  <individual name="americas" sort="continent"/>
-  <individual name="asia" sort="continent"/>
-  <individual name="europe" sort="continent"/>
-  <individual name="oceania" sort="continent"/>
+  <individual name="africa" sort="sort_region"/>
+  <individual name="americas" sort="sort_region"/>
+  <individual name="asia" sort="sort_region"/>
+  <individual name="europe" sort="sort_region"/>
+  <individual name="oceania" sort="sort_region"/>
 -->
 
+  <!-- individuals: regional blocs -->
+  <individual name="EU" sort="sort_regional_bloc"/>
+  <individual name="EFTA" sort="sort_regional_bloc"/>
+<!--
+  <individual name="CARICOM" sort="sort_regional_bloc"/>
+  <individual name="PA" sort="sort_regional_bloc"/>
+  <individual name="AU" sort="sort_regional_bloc"/>
+  <individual name="USAN" sort="sort_regional_bloc"/>
+  <individual name="EEU" sort="sort_regional_bloc"/>
+  <individual name="AL" sort="sort_regional_bloc"/>
+  <individual name="ASEAN" sort="sort_regional_bloc"/>
+  <individual name="CAIS" sort="sort_regional_bloc"/>
+  <individual name="CEFTA" sort="sort_regional_bloc"/>
+  <individual name="NAFTA" sort="sort_regional_bloc"/>
+  <individual name="SAARC" sort="sort_regional_bloc"/>
+  -->
+
+  <!-- individuals: languages-->
+  <individual name="es" sort="sort_language"/>
+  <individual name="en" sort="sort_language"/>
+  <individual name="fr" sort="sort_language"/>
+  <individual name="el" sort="sort_language"/>
+  <individual name="fi" sort="sort_language"/>
 
   <!-- individuals: countries-->
   <individual name="IRQ" sort="sort_country"/>

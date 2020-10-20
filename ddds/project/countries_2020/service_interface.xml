@@ -13,7 +13,7 @@
         <parameter predicate="selected_country" format="grammar_entry"/>
       </parameters>
       <target>
-        <http endpoint="http://http-service/capital"/>
+        <http endpoint="http://http-service/simple_query"/>
       </target>
     </query>
     <query name="neighbours">
@@ -24,12 +24,12 @@
         <http endpoint="http://http-service/neighbours"/>
       </target>
     </query>
-    <query name="size">
+    <query name="area">
       <parameters>
         <parameter predicate="selected_country" format="grammar_entry"/>
       </parameters>
       <target>
-        <http endpoint="http://http-service/size"/>
+        <http endpoint="http://http-service/simple_query"/>
       </target>
     </query>
     <query name="language">
@@ -40,12 +40,29 @@
         <http endpoint="http://http-service/language"/>
       </target>
     </query>
-    <query name="continent">
+    <query name="region">
       <parameters>
         <parameter predicate="selected_country" format="grammar_entry"/>
       </parameters>
       <target>
-        <http endpoint="http://http-service/continent"/>
+        <http endpoint="http://http-service/simple_query"/>
+      </target>
+    </query>
+
+    <query name="search_by_language">
+      <parameters>
+        <parameter predicate="selected_language" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/search_by_language"/>
+      </target>
+    </query>
+    <query name="search_by_regional_bloc">
+      <parameters>
+        <parameter predicate="selected_regional_bloc" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/search_by_regional_bloc"/>
       </target>
     </query>
 

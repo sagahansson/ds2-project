@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grammar>
-<action name="top">
-  <one-of>
-    <item>main menu</item>
-    <item>top</item>
-    <item>beginning</item>
-    <item>cancel</item>
-    <item>forget it</item>
-    <item>never mind</item>
-    <item>abort</item>
-  </one-of>
-</action>
+  <action name="top">
+    <one-of>
+      <item>main menu</item>
+      <item>top</item>
+      <item>beginning</item>
+      <item>cancel</item>
+      <item>forget it</item>
+      <item>never mind</item>
+      <item>abort</item>
+    </one-of>
+  </action>
 
-<action name="up">
-  <one-of>
-    <item>up</item>
-    <item>back</item>
-    <item>go back</item>
-  </one-of>
-</action>
+  <action name="up">
+    <one-of>
+      <item>up</item>
+      <item>back</item>
+      <item>go back</item>
+    </one-of>
+  </action>
 
-<!-- main q's -->
+  <!-- main q's -->
 
-<question type="wh_question" predicate="selected_country" speaker="system">Which country</question>
+  <question speaker="system" type="wh_question" predicate="selected_country">Which country</question>
+  <question speaker="system" type="wh_question" predicate="selected_language">Which language</question>
+  <question type="wh_question" predicate="selected_regional_bloc" speaker="system">Which regional bloc</question>
 
 
-<!-- population -->
 
-<question speaker="all" predicate="population" type="wh_question">the population</question>
+  <!-- population -->
 
-<question speaker="user" predicate="population" type="wh_question">
-  <one-of>
-    <item>what is the population of <slot predicate="selected_country" type="individual"/></item>
-    <item>how many people live in <slot predicate="selected_country" type="individual"/></item>
-    <item>how big is the population of <slot predicate="selected_country" type="individual"/></item>
-    <item><slot predicate="selected_country" type="individual"/> population</item>
-    <item>number of people in <slot predicate="selected_country" type="individual"/></item>
-    <item><slot predicate="selected_country" type="individual"/>'s population</item>
-    <item><slot predicate="selected_country" type="individual"/> population</item>
-    <item>population</item>
-  </one-of>
-</question>
+  <question speaker="all" predicate="population" type="wh_question">the population</question>
+
+  <question speaker="user" predicate="population" type="wh_question">
+    <one-of>
+      <item>what is the population of <slot predicate="selected_country" type="individual"/></item>
+      <item>how many people live in <slot predicate="selected_country" type="individual"/></item>
+      <item>how big is the population of <slot predicate="selected_country" type="individual"/></item>
+      <item><slot predicate="selected_country" type="individual"/> population</item>
+      <item>number of people in <slot predicate="selected_country" type="individual"/></item>
+      <item><slot predicate="selected_country" type="individual"/>'s population</item>
+      <item><slot predicate="selected_country" type="individual"/> population</item>
+      <item>population</item>
+    </one-of>
+  </question>
   
-  <question speaker="system" predicate="population" type="wh_question">the population</question>
+  <!--><question speaker="system" predicate="population" type="wh_question">the population</question>-->
   
   <answer speaker="system" predicate="population">It's<slot predicate="population"/></answer>
 
@@ -64,48 +67,57 @@
     </one-of>
   </question>
     
-    <question speaker="system" predicate="capital" type="wh_question">the capital</question>
+    <!--<question speaker="system" predicate="capital" type="wh_question">the capital</question>-->
     <answer speaker="system" predicate="capital">It's<slot predicate="capital"/></answer>
 
     <!--<answer speaker="system" predicate="capital">The capital of <slot predicate="selected_country" type="individual"/> is <slot predicate="capital"/></answer> funkar inte!!! varför?? -->
   
   <!-- neighbours -->
-  <question speaker="all" predicate="neighbours" type="wh_question">the neighbouring countries</question>
+  <question speaker="all" predicate="neighbours" type="wh_question">the neighbours of a country</question>
 
   <question speaker="user" predicate="neighbours" type="wh_question">
     <one-of>
       <item>what countries border to <slot predicate="selected_country" type="individual"/></item>
+      <item>which countries border <slot predicate="selected_country" type="individual"/></item>
       <item>countries next to <slot predicate="selected_country" type="individual"/></item>
       <item>which countries share a border with <slot predicate="selected_country" type="individual"/></item>
       <item>what are the neighbouring countries of <slot predicate="selected_country" type="individual"/></item>
       <item>what are the neighbours of <slot predicate="selected_country" type="individual"/></item>
+      <item>countries that border to <slot predicate="selected_country" type="individual"/></item>
+      <item>countries bordering to <slot predicate="selected_country" type="individual"/></item>
+      <item>bordering countries</item>
+      <item>countries that share a border with <slot predicate="selected_country" type="individual"/></item>
+      <item>neighbours of <slot predicate="selected_country" type="individual"/></item>
       <item>neighbours</item>
       <item>neighbouring countries</item>
     </one-of>
   </question>
     
-    <question speaker="system" predicate="neighbours" type="wh_question">the neighbouring countries</question>
+    <!--<question speaker="system" predicate="neighbours" type="wh_question">the neighbouring countries</question>-->
     <answer speaker="system" predicate="neighbours">It's<slot predicate="neighbours"/></answer>
 
 
-  <!-- size -->
+  <!-- area -->
 
-  <question speaker="all" predicate="size" type="wh_question">the size of a country</question>
+  <question speaker="all" predicate="area" type="wh_question">the size of a country</question>
 
-  <question speaker="user" predicate="size" type="wh_question">
+  <question speaker="user" predicate="area" type="wh_question">
     <one-of>
       <item>how big is<slot predicate="selected_country" type="individual"/></item>
       <item>what is the size of <slot predicate="selected_country" type="individual"/></item>
       <item>size <slot predicate="selected_country" type="individual"/></item>
       <item><slot predicate="selected_country" type="individual"/> size</item>
       <item>size of <slot predicate="selected_country" type="individual"/></item>
+      <item><slot predicate="selected_country" type="individual"/> how big</item>
+      <item>how big is it</item>
+      <item>what is the size of it</item>
       <item>size of a country</item>
       <item>size</item>
     </one-of>
   </question>
     
-    <question speaker="system" predicate="size" type="wh_question">the size of a country</question>
-    <answer speaker="system" predicate="size">It's<slot predicate="size"/></answer>
+    <!--<question speaker="system" predicate="area" type="wh_question">the size of a country</question>-->
+    <answer speaker="system" predicate="area">It's<slot predicate="area"/></answer>
 
   <!-- language -->
 
@@ -114,8 +126,10 @@
   <question speaker="user" predicate="language" type="wh_question">
     <one-of>
       <item>what language is spoken in <slot predicate="selected_country" type="individual"/></item>
+      <item>what languages are spoken in <slot predicate="selected_country" type="individual"/></item>
       <item>language of <slot predicate="selected_country" type="individual"/></item>
       <item>which language do you speak in <slot predicate="selected_country" type="individual"/></item>
+      <item>which languages are spoken in <slot predicate="selected_country" type="individual"/></item>
       <item><slot predicate="selected_country" type="individual"/> language</item>
       <item>languages <slot predicate="selected_country" type="individual"/></item>
       <item>language</item>
@@ -123,14 +137,14 @@
     </one-of>
   </question>
     
-    <question speaker="system" predicate="language" type="wh_question">the language</question>
+    <!--<question speaker="system" predicate="language" type="wh_question">the language</question>-->
     <answer speaker="system" predicate="language">It's<slot predicate="language"/></answer>
 
-  <!-- continent -->
+  <!-- region -->
 
-  <question speaker="all" predicate="continent" type="wh_question">the continent</question>
+  <question speaker="all" predicate="region" type="wh_question">the continent</question>
 
-  <question speaker="user" predicate="continent" type="wh_question">
+  <question speaker="user" predicate="region" type="wh_question">
     <one-of>
       <item>which continent is <slot predicate="selected_country" type="individual"/>in</item>
       <item>on which continent is <slot predicate="selected_country" type="individual"/> located</item>
@@ -141,11 +155,129 @@
     </one-of>
   </question>
     
-    <question speaker="system" predicate="continent" type="wh_question">the continent</question>
-    <answer speaker="system" predicate="continent">It's<slot predicate="continent"/></answer>
+    <!--<question speaker="system" predicate="region" type="wh_question">the continent</question>-->
+    <answer speaker="system" predicate="region">It's<slot predicate="region"/></answer>
 
 
-  <!-- individuals: countries-->
+  <!-- search_by_language -->
+
+  <question speaker="all" predicate="search_by_language" type="wh_question">where the language is spoken</question>
+
+  <question speaker="user" predicate="search_by_language" type="wh_question">
+    <one-of>
+      <item>in which countries is <slot predicate="selected_language" type="individual"/>spoken</item>
+      <item>in which country is <slot predicate="selected_language" type="individual"/>spoken</item>
+      <item>where is <slot predicate="selected_language" type="individual"/>spoken</item>
+      <item>where do you speak <slot predicate="selected_language" type="individual"/></item>
+      <item>which countries speak <slot predicate="selected_language" type="individual"/></item>
+      <item><slot predicate="selected_language" type="individual"/> where</item>
+      <item><slot predicate="selected_language" type="individual"/> speaking countries</item>
+      <item>what are some <slot predicate="selected_language" type="individual"/> speaking countries</item>
+    </one-of>
+  </question>
+    
+   <!-- change below to: "spanish is spoken in......"-->
+    <answer speaker="system" predicate="search_by_language">In<slot predicate="search_by_language"/></answer>
+
+  <!-- search_by_regional_bloc -->
+
+  <question speaker="all" predicate="search_by_regional_bloc" type="wh_question">which countries are members of a certain regional bloc</question>
+
+  <question speaker="user" predicate="search_by_regional_bloc" type="wh_question">
+    <one-of>
+      <item>which countries are in <slot predicate="selected_regional_bloc" type="individual"/></item>
+      <item>what countries are members of <slot predicate="selected_regional_bloc" type="individual"/></item>
+      <item>which countries are part of <slot predicate="selected_regional_bloc" type="individual"/></item>
+      <item><slot predicate="selected_regional_bloc" type="individual"/> members countries</item>
+      <item>members of <slot predicate="selected_regional_bloc" type="individual"/></item>
+      <item>countries of <slot predicate="selected_regional_bloc" type="individual"/></item>
+      <item><slot predicate="selected_regional_bloc" type="individual"/> members</item>
+    </one-of>
+  </question>
+    
+   <!-- change below to: "spanish is spoken in......"-->
+    <answer speaker="system" predicate="search_by_regional_bloc">It's<slot predicate="search_by_regional_bloc"/></answer>
+
+<!-- individuals: regional blocs-->
+  <individual name="EU">
+    <one-of>
+      <item>the EU</item>
+      <item>the eu</item>
+      <item>EU</item>
+      <item>eu</item>
+      <item>the European Union</item>
+      <item>the european union</item>
+      <item>European Union</item>
+      <item>european union</item>
+    </one-of>
+  </individual>
+
+  <individual name="EFTA">
+    <one-of>
+      <item>the EFTA</item>
+      <item>the efta</item>
+      <item>EFTA</item>
+      <item>efta</item>
+      <item>the European Free Trade Association</item>
+      <item>the european free trade association</item>
+      <item>European Free Trade Association</item>
+      <item>european free trade association</item>
+    </one-of>
+  </individual>
+
+
+<!-- individuals: languages -->
+  <individual name="es">
+    <one-of>
+      <item>Spanish</item>
+      <item>spanish</item>
+      <item>español</item>
+      <item>espanol</item>
+      <item>es</item>
+    </one-of>
+  </individual>
+
+  <individual name="en">
+    <one-of>
+      <item>English</item>
+      <item>english</item>
+      <item>en</item>
+    </one-of>
+  </individual>
+
+  <individual name="fr">
+    <one-of>
+      <item>French</item>
+      <item>french</item>
+      <item>francais</item>
+      <item>français</item>
+      <item>fr</item>
+    </one-of>
+  </individual>
+
+  <individual name="el">
+    <one-of>
+      <item>Greek</item>
+      <item>greek</item>
+      <item>ellenika</item>
+      <item>elleniká</item>
+      <item>Ελληνικά</item>
+      <item>gr</item>
+    </one-of>
+  </individual>
+
+  <individual name="fi">
+    <one-of>
+      <item>Finnish</item>
+      <item>finnish</item>
+      <item>suomi</item>
+      <item>suomen kieli</item>
+      <item>finska</item>
+      <item>fi</item>
+    </one-of>
+  </individual>
+
+  <!-- individuals: countries -->
 
   <individual name="IRQ">
     <one-of>

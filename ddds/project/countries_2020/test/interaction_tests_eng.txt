@@ -25,11 +25,49 @@ S> It's *.
 U> what are the neighbours of iraq
 S> It's *.
 
+--- nei inc
+U> neighbours
+S> Which country?
+U> iraq
+S> It's Iran (Islamic Republic of), Jordan, Kuwait, Saudi Arabia, Syrian Arab Republic and Turkey.
+
 --- size
 U> how big is iraq
 S> It's *.
+
+--- size inc
+U> size
+S> Which country?
+U> iraq
+S> It's 438317 square kilometers.
 
 --- continent 
 U> what continent is iraq located in
 S> It's *.
 
+--- continent inc
+U> continent
+S> Which country?
+U> iraq
+S> It's Asia.
+
+--- lang
+U> what language is spoken in iraq
+S> It's *.
+
+--- lang inc
+U> language
+S> Which country?
+U> iraq
+S> It's Arabic and Kurdish.
+
+--- sb lang
+U> in which country is finnish spoken
+S> In Finland.
+
+--- sb lang inc
+S> What would you like to do?
+U> finnish
+S> So, You want to know where the language is spoken..
+U>
+S> In Finland.
