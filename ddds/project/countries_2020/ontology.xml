@@ -14,6 +14,7 @@
   <predicate name="selected_region" sort="sort_region"/>
   <predicate name="selected_language" sort="sort_language"/>
   <predicate name="selected_regional_bloc" sort="sort_regional_bloc"/>
+  <predicate name="selected_calling_code" sort="integer"/>
 
   <!-- predicates: subjects: wh  -->
   <predicate name="population" sort="string"/>
@@ -23,24 +24,22 @@
   <predicate name="language" sort="string"/>
   <predicate name ="region" sort="string"/>
 
+  <!-- predicates: subjects: yn -->
+  <!-- is selected_country in selected_region -->
+  <predicate name="yn_region" sort="string"/>
+
   <!-- predicates: subjects: search_by-->
   <predicate name="search_by_language" sort="string"/>
   <predicate name="search_by_regional_bloc" sort="string"/>
 
-  <!-- glöm ej denna fråga
-is selected_country in selected_region
-  <predicate name="yn_country" sort="string"/>
--->
 
-<!-- individuals: regions -->
-<!--
+  <!-- individuals: regions -->
   
   <individual name="africa" sort="sort_region"/>
   <individual name="americas" sort="sort_region"/>
   <individual name="asia" sort="sort_region"/>
   <individual name="europe" sort="sort_region"/>
   <individual name="oceania" sort="sort_region"/>
--->
 
   <!-- individuals: regional blocs -->
   <individual name="EU" sort="sort_regional_bloc"/>
@@ -79,4 +78,21 @@ is selected_country in selected_region
   <individual name="REU" sort="sort_country"/>
   <individual name="GLP" sort="sort_country"/>
   -->
+
+<!-- frågor att lägga till
+which countries are in selected_region # which continent is selected_country in predicate="region"
+<predicate name="region2" sort="string"/>
+is selcted_country in selected_regional_bloc
+<predicate name="yn_regional_bloc" sort="string"/>
+what is the calling code of selected_country
+<predicate name="calling_code" sort="string"/>
+which country has the calling code selected_calling_code
+<predicate name="calling_code2" sort="string"/>
+
+-->
+
+
+
 </ontology>
+
+

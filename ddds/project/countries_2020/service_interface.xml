@@ -65,5 +65,15 @@
         <http endpoint="http://http-service/search_by_regional_bloc"/>
       </target>
     </query>
-
+    
+<!-- yn q's -->
+    <query name="yn_region">
+      <parameters>
+        <parameter predicate="selected_country" format="grammar_entry"/>
+        <parameter predicate="selected_region" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/yn_region"/>
+      </target>
+    </query>
 </service_interface>

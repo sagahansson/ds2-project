@@ -68,6 +68,6 @@ S> In Finland.
 --- sb lang inc
 S> What would you like to do?
 U> finnish
-S> So, You want to know where the language is spoken..
+S> So, You want to know where the language is spoken.
 U>
 S> In Finland.

@@ -2,6 +2,9 @@ name: http-service
 sync:
   - ./:/okteto/
 workdir: /okteto/
-
-command: pip install requests; pip install future; pip install python-restcountries; gunicorn --workers=3 --bind=0.0.0.0:80 --worker-class=gevent --reload http_service:app
-  
+command:
+  - gunicorn
+  - --workers=3
+  - --bind=0.0.0.0:80
+  - --worker-class=gevent
+  - http_service:app

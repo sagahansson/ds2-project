@@ -25,6 +25,7 @@
   <question speaker="system" type="wh_question" predicate="selected_country">Which country</question>
   <question speaker="system" type="wh_question" predicate="selected_language">Which language</question>
   <question type="wh_question" predicate="selected_regional_bloc" speaker="system">Which regional bloc</question>
+  <question type="wh_question" predicate="selected_region" speaker="system">Which continent</question>
 
 
 
@@ -198,6 +199,23 @@
    <!-- change below to: "spanish is spoken in......"-->
     <answer speaker="system" predicate="search_by_regional_bloc">It's<slot predicate="search_by_regional_bloc"/></answer>
 
+  <!-- yn_region -->
+
+  <question speaker="all" predicate="yn_region" type="wh_question">if a country is in a certain region</question>
+
+  <!-- need more data -->
+  <question speaker="user" predicate="yn_region" type="wh_question">
+    <one-of>
+      <item>is <slot predicate="selected_country" type="individual"/> in <slot predicate="selected_region" type="individual"/></item>
+      <item>is <slot predicate="selected_country" type="individual"/> a member of<slot predicate="selected_region" type="individual"/></item>
+      <item>is <slot predicate="selected_country" type="individual"/> part of<slot predicate="selected_region" type="individual"/></item>
+      <item><slot predicate="selected_country" type="individual"/><slot predicate="selected_region" type="individual"/></item>
+    </one-of>
+  </question>
+    
+  <answer speaker="system" predicate="yn_region"><slot predicate="yn_region"/>.</answer>
+
+
 <!-- individuals: regional blocs-->
   <individual name="EU">
     <one-of>
@@ -322,4 +340,42 @@
       <item>lby</item>
     </one-of>
   </individual>
+
+
+  <individual name="africa">
+    <one-of>
+      <item>Africa</item>
+      <item>africa</item>
+    </one-of>
+  </individual>
+  <individual name="americas">
+    <one-of>
+      <item>Americas</item>
+      <item>americas</item>
+      <item>the Americas</item>
+      <item>the americas</item>
+      <item>America</item>
+      <item>america</item>
+    </one-of>
+  </individual>
+  <individual name="asia">
+    <one-of>
+      <item>Asia</item>
+      <item>asia</item>
+    </one-of>
+  </individual>
+  <individual name="europe">
+    <one-of>
+      <item>Europe</item>
+      <item>europe</item>
+    </one-of>
+  </individual>
+  <individual name="oceania">
+    <one-of>
+      <item>Oceania</item>
+      <item>oceania</item>
+    </one-of>
+  </individual>
+
+
 </grammar>

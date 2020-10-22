@@ -165,7 +165,7 @@ def get_data(code, search_by='alpha'):
 @app.route("/simple_query", methods=["POST"])
 def simple_query():
   # simplest queries go here -- when basically no conditions are needed etc
-  # e g capital, area
+  # predicates calling this: capital, area, region
   payload = request.get_json()
   country = payload['context']['facts']['selected_country']['value']
   subject = payload['request']['name']
@@ -244,12 +244,28 @@ def search_by_language():
 @app.route("/search_by_regional_bloc", methods=['POST'])
 def search_by_regional_bloc():
   payload = request.get_json()
-  country = payload['context']['facts']['selected_regional_bloc']['value']
-  data = get_data(country, search_by='regionalbloc')
+  region = payload['context']['facts']['selected_regional_bloc']['value']
+  data = get_data(region, search_by='regionalbloc')
   data = [lang['name'] for lang in data]
   if len(data) > 1:
     data = get_and_list(data)
   data = ' '.join(data)
   return query_response(value=data, grammar_entry=None)
+  
+
+@app.route("/yn_region", methods=['POST'])
+def yn_region():
+  payload = request.get_json()
+  country = payload['context']['facts']['selected_country']['value']
+  region =  payload['context']['facts']['selected_region']['value']
+  right_region = get_data(country)['region']
+  country = get_data(country)['name']
+  print("country", country)
+  print("right_region:", right_region)
+  if right_region.lower() == region.lower():
+    answer = 'Yes, ' + country + " is in " + right_region
+  else:
+    answer = 'No, ' + country + " is not in " + region.capitalize() + ", but in " + right_region
+  return query_response(value=answer, grammar_entry=None)
 
 
