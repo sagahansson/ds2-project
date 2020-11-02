@@ -3,10 +3,9 @@
   
   <!--<sort name="subject" dynamic="false"/>-->
   <sort name="sort_country" dynamic="true"/>
-  <sort name="sort_region" dynamic="true"/>
-  <sort name="sort_city" dynamic="true"/>
+  <sort name="sort_region" dynamic="false"/>
   <sort name="sort_language" dynamic="true"/>
-  <sort name="sort_regional_bloc" dynamic="true"/>
+  <sort name="sort_regional_bloc" dynamic="false"/>
 
  <!-- <predicate name="continent_to_study" sort="continent"/>-->
   <!--<predicate name="selected_subject" sort="subject"/>-->
@@ -22,7 +21,8 @@
   <predicate name="neighbours" sort="string"/>
   <predicate name="area" sort="string"/>
   <predicate name="language" sort="string"/>
-  <predicate name ="region" sort="string"/>
+  <predicate name="region" sort="string"/>
+  <predicate name="region_two" sort="string"/>
 
   <!-- predicates: subjects: yn -->
   <!-- is selected_country in selected_region -->
@@ -70,18 +70,14 @@
   <individual name="COG" sort="sort_country"/>
   <individual name="BGD" sort="sort_country"/>
   <individual name="LBY" sort="sort_country"/>
-  <!--
   <individual name="ERI" sort="sort_country"/>
   <individual name="ZMB" sort="sort_country"/>
   <individual name="BRA" sort="sort_country"/>
   <individual name="AUT" sort="sort_country"/>
   <individual name="REU" sort="sort_country"/>
   <individual name="GLP" sort="sort_country"/>
-  -->
 
 <!-- frågor att lägga till
-which countries are in selected_region # which continent is selected_country in predicate="region"
-<predicate name="region2" sort="string"/>
 is selcted_country in selected_regional_bloc
 <predicate name="yn_regional_bloc" sort="string"/>
 what is the calling code of selected_country

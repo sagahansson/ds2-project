@@ -31,21 +31,21 @@ S> Which country?
 U> iraq
 S> It's Iran (Islamic Republic of), Jordan, Kuwait, Saudi Arabia, Syrian Arab Republic and Turkey.
 
---- size
+--- area
 U> how big is iraq
-S> It's *.
+S> It's 438317 square kilometers.
 
---- size inc
+--- area inc
 U> size
 S> Which country?
 U> iraq
 S> It's 438317 square kilometers.
 
---- continent 
+--- region 
 U> what continent is iraq located in
-S> It's *.
+S> It's Asia.
 
---- continent inc
+--- region inc
 U> continent
 S> Which country?
 U> iraq

@@ -49,6 +49,8 @@
       </target>
     </query>
 
+
+    <!-- ska det verkligen vara format="grammar_entry" när det inte är selected_country? -->
     <query name="search_by_language">
       <parameters>
         <parameter predicate="selected_language" format="grammar_entry"/>
@@ -57,12 +59,22 @@
         <http endpoint="http://http-service/search_by_language"/>
       </target>
     </query>
+    <!-- which countries are in **** -->
     <query name="search_by_regional_bloc">
       <parameters>
         <parameter predicate="selected_regional_bloc" format="grammar_entry"/>
       </parameters>
       <target>
         <http endpoint="http://http-service/search_by_regional_bloc"/>
+      </target>
+    </query>
+    <!-- which countries are in **** -->
+    <query name="region_two">
+      <parameters>
+        <parameter predicate="selected_region" format="grammar_entry"/>
+      </parameters>
+      <target>
+        <http endpoint="http://http-service/region_two"/>
       </target>
     </query>
     
