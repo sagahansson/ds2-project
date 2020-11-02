@@ -224,6 +224,9 @@ def language():
   data = [lang['name'] for lang in data]
   if len(data) > 1:
     data = get_and_list(data)
+    data.insert(0, f'The languages of {country.capitalize()} are ')
+  else:
+    data.insert(0, f'The language of {country.capitalize()} is ')
   data = ' '.join(data)
   print(data)
   return query_response(value=data, grammar_entry=None)
@@ -254,6 +257,7 @@ def search_by_regional_bloc():
     data = get_and_list(data)
   data = ' '.join(data)
   data = num_c + data 
+  print(data)
   return query_response(value=data, grammar_entry=None)
 
 @app.route("/yn_region", methods=['POST'])
