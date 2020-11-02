@@ -24,7 +24,7 @@
 
   <question speaker="system" type="wh_question" predicate="selected_country">Which country</question>
   <question speaker="system" type="wh_question" predicate="selected_language">Which language</question>
-  <question type="wh_question" predicate="selected_regional_bloc" speaker="system">Which regional bloc</question>
+  <question type="wh_question" predicate="selected_regional_bloc" speaker="system">Which regional block</question>
   <question type="wh_question" predicate="selected_region" speaker="system">Which continent</question>
 
 
@@ -58,7 +58,7 @@
   
   <!--><question speaker="system" predicate="population" type="wh_question">the population</question>-->
   
-  <answer speaker="system" predicate="population">It's<slot predicate="population"/></answer>
+  <answer speaker="system" predicate="population">The population of <slot predicate="selected_country"/> is <slot predicate="population"/></answer>
 
   <!-- capital -->
 
@@ -92,11 +92,9 @@
     </one-of>
   </question>
     
-    <!--<question speaker="system" predicate="capital" type="wh_question">the capital</question>-->
-    <answer speaker="system" predicate="capital">It's<slot predicate="capital"/></answer>
-
-    <!--<answer speaker="system" predicate="capital">The capital of <slot predicate="selected_country" type="individual"/> is <slot predicate="capital"/></answer> funkar inte!!! varför?? -->
   
+  <answer speaker="system" predicate="capital">The capital of <slot predicate="selected_country"/> is <slot predicate="capital"/></answer>
+
   <!-- neighbours -->
   <question speaker="all" predicate="neighbours" type="wh_question">the neighbours of a country</question>
 
@@ -124,7 +122,7 @@
   </question>
     
     <!--<question speaker="system" predicate="neighbours" type="wh_question">the neighbouring countries</question>-->
-    <answer speaker="system" predicate="neighbours">It's<slot predicate="neighbours"/></answer>
+    <answer speaker="system" predicate="neighbours"><slot predicate="selected_country"/> is bordered by <slot predicate="neighbours"/></answer>
 
 
   <!-- area -->
@@ -150,8 +148,7 @@
     </one-of>
   </question>
     
-    <!--<question speaker="system" predicate="area" type="wh_question">the size of a country</question>-->
-    <answer speaker="system" predicate="area">It's<slot predicate="area"/></answer>
+  <answer speaker="system" predicate="area">The area of <slot predicate="selected_country"/> is <slot predicate="area"/></answer>
 
   <!-- language -->
 
@@ -178,9 +175,8 @@
       <item>lang</item>
     </one-of>
   </question>
-    
-    <!--<question speaker="system" predicate="language" type="wh_question">the language</question>-->
-    <answer speaker="system" predicate="language">It's<slot predicate="language"/></answer>
+
+  <answer speaker="system" predicate="language">The <slot predicate="language"/></answer>
 
   <!-- region -->
 
@@ -208,9 +204,8 @@
       <item>continent</item>
     </one-of>
   </question>
-    
-    <!--<question speaker="system" predicate="region" type="wh_question">the continent</question>-->
-    <answer speaker="system" predicate="region">It's<slot predicate="region"/></answer>
+
+  <answer speaker="system" predicate="region">The continent of <slot predicate="selected_country"/> is <slot predicate="region"/></answer>
 
 
   <!-- search_by_language -->
@@ -240,8 +235,7 @@
     </one-of>
   </question>
     
-   <!-- change below to: "spanish is spoken in......"-->
-    <answer speaker="system" predicate="search_by_language">In<slot predicate="search_by_language"/></answer>
+    <answer speaker="system" predicate="search_by_language"><slot predicate="selected_language"/> is spoken in <slot predicate="search_by_language"/></answer>
 
   <!-- search_by_regional_bloc -->
 
@@ -272,14 +266,13 @@
     </one-of>
   </question>
     
-   <!-- change below to: "spanish is spoken in......"-->
-    <answer speaker="system" predicate="search_by_regional_bloc">It's<slot predicate="search_by_regional_bloc"/></answer>
+
+  <answer speaker="system" predicate="search_by_regional_bloc">The countries of <slot predicate="selected_regional_bloc"/> are <slot predicate="search_by_regional_bloc"/></answer>
 
   <!-- yn_region -->
 
   <question speaker="all" predicate="yn_region" type="wh_question">if a country is in a certain region</question>
 
-  <!-- need more data -->
   <question speaker="user" predicate="yn_region" type="wh_question">
     <one-of>
       <item>is <slot predicate="selected_country" type="individual"/> in <slot predicate="selected_region" type="individual"/></item>
@@ -332,11 +325,12 @@
   </question>
     
     <!-- change to * are the members of * -->
-    <answer speaker="system" predicate="region_two">It's<slot predicate="region_two"/></answer>
+    <answer speaker="system" predicate="region_two"><slot predicate="selected_region"/> consists of <slot predicate="region_two"/></answer>
 
 
 
 <!-- individuals: regional blocs-->
+
   <individual name="EU">
     <one-of>
       <item>the EU</item>
@@ -362,6 +356,129 @@
       <item>european free trade association</item>
     </one-of>
   </individual>
+
+  <individual name="CARICOM">
+    <one-of>
+      <item>CARICOM</item>
+      <item>caricom</item>
+      <item>the Caricom</item>
+      <item>the caricom</item>
+      <item>the Caribbean Community</item>
+      <item>caribbean community</item>
+    </one-of>
+  </individual>
+
+  <individual name="PA">
+    <one-of>
+      <item>PA</item>
+      <item>pa</item>
+      <item>the PA</item>
+      <item>the pa</item>
+      <item>the Pacific Alliance</item>
+      <item>pacific alliance</item>
+    </one-of>
+  </individual>
+
+  <individual name="AU">
+    <one-of>
+      <item>AU</item>
+      <item>au</item>
+      <item>the AU</item>
+      <item>the au</item>
+      <item>the African Union</item>
+      <item>african union</item>
+    </one-of>
+  </individual>
+
+  <individual name="USAN">
+    <one-of>
+      <item>USAN</item>
+      <item>usan</item>
+      <item>the USAN</item>
+      <item>the usan</item>
+      <item>the Union of South American Nations</item>
+      <item>untion of south american nations</item>
+    </one-of>
+  </individual>
+
+  <individual name="EEU">
+    <one-of>
+      <item>EEU</item>
+      <item>eeu</item>
+      <item>the EEU</item>
+      <item>the eeu</item>
+      <item>the Eurasian Economic Union</item>
+      <item>eurasian economic union</item>
+    </one-of>
+  </individual>
+
+  <individual name="AL">
+    <one-of>
+      <item>AL</item>
+      <item>al</item>
+      <item>the AL</item>
+      <item>the al</item>
+      <item>the Arab League</item>
+      <item>arab league</item>
+    </one-of>
+  </individual>
+
+  <individual name="ASEAN">
+    <one-of>
+      <item>ASEAN</item>
+      <item>asean</item>
+      <item>the ASEAN</item>
+      <item>the asean</item>
+      <item>the Association of Southeast Asian Nations</item>
+      <item>association of southeast asian nations</item>
+    </one-of>
+  </individual>
+
+  <individual name="CAIS">
+    <one-of>
+      <item>CAIS</item>
+      <item>cais</item>
+      <item>the CAIS</item>
+      <item>the cais</item>
+      <item>the Central American Integration System</item>
+      <item>central american integraion system</item>
+    </one-of>
+  </individual>
+
+  <individual name="CEFTA">
+    <one-of>
+      <item>CEFTA</item>
+      <item>cefta</item>
+      <item>the CEFTA</item>
+      <item>the cefta</item>
+      <item>the Central European Free Trade Agreement</item>
+      <item>central european free trade agreement</item>
+    </one-of>
+  </individual>
+
+  <individual name="NAFTA">
+    <one-of>
+      <item>NAFTA</item>
+      <item>nafta</item>
+      <item>the NAFTA</item>
+      <item>the nafta</item>
+      <item>the North American Free Trade Agreement</item>
+      <item>north american free trade agreement</item>
+    </one-of>
+  </individual>
+
+  <individual name="SAARC">
+    <one-of>
+      <item>SAARC</item>
+      <item>saarc</item>
+      <item>the SAARC</item>
+      <item>the saarc</item>
+      <item>the South Asian Association for Regional Cooperation</item>
+      <item>south asian association for regional cooperation</item>
+    </one-of>
+  </individual>
+
+
 
 
 <!-- individuals: languages -->

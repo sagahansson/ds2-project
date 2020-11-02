@@ -153,13 +153,10 @@ def action_success_response():
     return response
 
 def get_data(code, search_by='name'):
-    #key = sagakey
     url = f"https://restcountries.eu/rest/v2/{search_by}/{code}"
-    print(url)
     request = Request(url)
     response = urlopen(request)
     data = response.read()
-    print(json.loads(data))
     return json.loads(data)
 
 @app.route("/simple_query", methods=["POST"])
@@ -169,10 +166,13 @@ def simple_query():
   payload = request.get_json()
   country = payload['context']['facts']['selected_country']['grammar_entry']
   subject = payload['request']['name']
-  data = get_data(country)[0][subject]
+  got_data = get_data(country)[0]
+  data = got_data[subject]
   if subject == 'area':
     data = str(int(data)) + ' square kilometers'
-  return query_response(value=data, grammar_entry=None)
+  if data == 'Americas':
+    data = got_data['subregion']
+  return query_response(value=None, grammar_entry=data)
 
 def get_and_list(data):
 # takes a list, puts commas at the end of every element except last two, puts "and" between last two elements
@@ -189,7 +189,6 @@ def population():
   # what is the population of selected_country
   payload = request.get_json()
   country = payload['context']['facts']['selected_country']['grammar_entry']
-  print(payload)
   data = get_data(country)[0]['population']
   if 6 < len(str(data)) < 10:
     data = round((data/1000000), 2)
@@ -200,7 +199,7 @@ def population():
   else:
     data = str(data)
     print(data)
-  return query_response(value=data, grammar_entry=None)
+  return query_response(value=None, grammar_entry=data)
 
 @app.route("/neighbours", methods=['POST'])
 def neighbours():
@@ -212,7 +211,7 @@ def neighbours():
   if len(data) > 1:
     data = get_and_list(data)
   data = ' '.join(data)
-  return query_response(value=data, grammar_entry=None)
+  return query_response(value=None, grammar_entry=data)
 
 
 @app.route("/language", methods=['POST'])
@@ -224,9 +223,9 @@ def language():
   data = [lang['name'] for lang in data]
   if len(data) > 1:
     data = get_and_list(data)
-    data.insert(0, f'The languages of {country.capitalize()} are ')
+    data.insert(0, f'languages of {country.capitalize()} are ')
   else:
-    data.insert(0, f'The language of {country.capitalize()} is ')
+    data.insert(0, f'language of {country.capitalize()} is ')
   data = ' '.join(data)
   print(data)
   return query_response(value=data, grammar_entry=None)
@@ -243,7 +242,7 @@ def search_by_language():
     data = get_and_list(data)
     data.insert(0, f'{num_c} countries: ')
   data = ' '.join(data)
-  return query_response(value=data, grammar_entry=None)
+  return query_response(value=None, grammar_entry=data)
 
 @app.route("/search_by_regional_bloc", methods=['POST'])
 def search_by_regional_bloc():
@@ -257,11 +256,12 @@ def search_by_regional_bloc():
     data = get_and_list(data)
   data = ' '.join(data)
   data = num_c + data 
-  print(data)
-  return query_response(value=data, grammar_entry=None)
+  print(f"payload: {payload}")
+  return query_response(value=None, grammar_entry=data)
 
 @app.route("/yn_region", methods=['POST'])
 def yn_region():
+  # is selected_country in selected_region
   payload = request.get_json()
   country = payload['context']['facts']['selected_country']['grammar_entry']
   region =  payload['context']['facts']['selected_region']['value']
@@ -285,5 +285,5 @@ def region_two():
     data = get_and_list(data)
   data = ' '.join(data)
   data = num_c + data
-  return query_response(value=data, grammar_entry=None)
+  return query_response(value=None, grammar_entry=data)
 

@@ -6,30 +6,48 @@
       <findout type="goal"/>
     </plan>
   </goal>
+
   <goal type="resolve" question_type="wh_question" predicate="population">
     <plan>
       <findout type="wh_question" predicate="selected_country"/>
       <invoke_service_query predicate="population" type="wh_question"/>
     </plan>
   </goal>
+  <parameters predicate="population">
+    <background predicate="selected_country"/>
+  </parameters>
+  
+
   <goal type="resolve" question_type="wh_question" predicate="capital">
     <plan>
       <findout type="wh_question" predicate="selected_country"/>
       <invoke_service_query predicate="capital" type="wh_question"/>
     </plan>
   </goal>
+  <parameters predicate="capital">
+    <background predicate="selected_country"/>
+  </parameters>
+
   <goal type="resolve" question_type="wh_question" predicate="neighbours">
     <plan>
       <findout type="wh_question" predicate="selected_country"/>
       <invoke_service_query predicate="neighbours" type="wh_question"/>
     </plan>
   </goal>
+  <parameters predicate="population">
+    <background predicate="selected_country"/>
+  </parameters>
+
   <goal type="resolve" question_type="wh_question" predicate="area">
     <plan>
       <findout type="wh_question" predicate="selected_country"/>
       <invoke_service_query predicate="area" type="wh_question"/>
     </plan>
   </goal>
+  <parameters predicate="area">
+    <background predicate="selected_country"/>
+  </parameters>
+
   <goal type="resolve" question_type="wh_question" predicate="language">
     <plan>
       <findout type="wh_question" predicate="selected_country"/>
@@ -42,6 +60,9 @@
       <invoke_service_query predicate="region" type="wh_question"/>
     </plan>
   </goal>
+  <parameters predicate="region">
+    <background predicate="selected_country"/>
+  </parameters>
 
   <goal type="resolve" question_type="wh_question" predicate="search_by_language">
     <plan>
@@ -49,6 +70,9 @@
       <invoke_service_query predicate="search_by_language" type="wh_question"/>
     </plan>
   </goal>
+  <parameters predicate="search_by_language">
+    <background predicate="selected_language"/>
+  </parameters>
 
   <goal type="resolve" question_type="wh_question" predicate="search_by_regional_bloc">
     <plan>
@@ -56,6 +80,10 @@
       <invoke_service_query predicate="search_by_regional_bloc" type="wh_question"/>
     </plan>
   </goal>
+  <parameters predicate="search_by_regional_bloc">
+    <background predicate="selected_regional_bloc"/>
+  </parameters>
+
   <goal type="resolve" question_type="wh_question" predicate="yn_region">
     <plan>
       <findout type="wh_question" predicate="selected_country"/>
@@ -63,10 +91,15 @@
       <invoke_service_query predicate="yn_region" type="wh_question"/>
     </plan>
   </goal>
+
   <goal type="resolve" question_type="wh_question" predicate="region_two">
     <plan>
       <findout type="wh_question" predicate="selected_region"/>
       <invoke_service_query predicate="region_two" type="wh_question"/>
     </plan>
   </goal>
+  <parameters predicate="region_two">
+    <background predicate="selected_region"/>
+  </parameters>
+  
 </domain>

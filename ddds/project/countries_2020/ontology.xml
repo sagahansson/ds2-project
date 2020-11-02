@@ -6,31 +6,38 @@
   <sort name="sort_region" dynamic="false"/>
   <sort name="sort_language" dynamic="true"/>
   <sort name="sort_regional_bloc" dynamic="false"/>
+  
+  <sort name="population_string" dynamic="true"/>
+  <sort name="capital_string" dynamic="true"/>
+  <sort name="neighbours_string" dynamic="true"/>
+  <sort name="area_string" dynamic="true"/>
+  <sort name="region_string" dynamic="true"/>
+  <sort name="region_two_string" dynamic="true"/>
+  <sort name="search_by_language_string" dynamic="true"/>
+  <sort name="search_by_regional_bloc_string" dynamic="true"/>
 
- <!-- <predicate name="continent_to_study" sort="continent"/>-->
-  <!--<predicate name="selected_subject" sort="subject"/>-->
+  <!-- predicates: selected_X -->
   <predicate name="selected_country" sort="sort_country"/>
   <predicate name="selected_region" sort="sort_region"/>
   <predicate name="selected_language" sort="sort_language"/>
   <predicate name="selected_regional_bloc" sort="sort_regional_bloc"/>
-  <predicate name="selected_calling_code" sort="integer"/>
 
   <!-- predicates: subjects: wh  -->
-  <predicate name="population" sort="string"/>
-  <predicate name="capital" sort="string"/>
-  <predicate name="neighbours" sort="string"/>
-  <predicate name="area" sort="string"/>
+  <predicate name="population" sort="population_string"/>
+  <predicate name="capital" sort="capital_string"/>
+  <predicate name="neighbours" sort="neighbours_string"/>
+  <predicate name="area" sort="area_string"/>
   <predicate name="language" sort="string"/>
-  <predicate name="region" sort="string"/>
-  <predicate name="region_two" sort="string"/>
+  <predicate name="region" sort="region_string"/>
+  <predicate name="region_two" sort="region_two_string"/>
 
   <!-- predicates: subjects: yn -->
   <!-- is selected_country in selected_region -->
   <predicate name="yn_region" sort="string"/>
 
   <!-- predicates: subjects: search_by-->
-  <predicate name="search_by_language" sort="string"/>
-  <predicate name="search_by_regional_bloc" sort="string"/>
+  <predicate name="search_by_language" sort="search_by_language_string"/>
+  <predicate name="search_by_regional_bloc" sort="search_by_regional_bloc_string"/>
 
 
   <!-- individuals: regions -->
@@ -42,21 +49,20 @@
   <individual name="oceania" sort="sort_region"/>
 
   <!-- individuals: regional blocs -->
-  <individual name="EU" sort="sort_regional_bloc"/>
-  <individual name="EFTA" sort="sort_regional_bloc"/>
-<!--
-  <individual name="CARICOM" sort="sort_regional_bloc"/>
-  <individual name="PA" sort="sort_regional_bloc"/>
-  <individual name="AU" sort="sort_regional_bloc"/>
-  <individual name="USAN" sort="sort_regional_bloc"/>
-  <individual name="EEU" sort="sort_regional_bloc"/>
   <individual name="AL" sort="sort_regional_bloc"/>
   <individual name="ASEAN" sort="sort_regional_bloc"/>
+  <individual name="AU" sort="sort_regional_bloc"/>
   <individual name="CAIS" sort="sort_regional_bloc"/>
+  <individual name="CARICOM" sort="sort_regional_bloc"/>
   <individual name="CEFTA" sort="sort_regional_bloc"/>
+  <individual name="EEU" sort="sort_regional_bloc"/>
+  <individual name="EFTA" sort="sort_regional_bloc"/>
+  <individual name="EU" sort="sort_regional_bloc"/>
   <individual name="NAFTA" sort="sort_regional_bloc"/>
+  <individual name="PA" sort="sort_regional_bloc"/>
   <individual name="SAARC" sort="sort_regional_bloc"/>
-  -->
+  <individual name="USAN" sort="sort_regional_bloc"/>
+
 
   <!-- individuals: languages-->
   <individual name="es" sort="sort_language"/>
@@ -84,8 +90,7 @@ what is the calling code of selected_country
 <predicate name="calling_code" sort="string"/>
 which country has the calling code selected_calling_code
 <predicate name="calling_code2" sort="string"/>
-
--->
+<predicate name="selected_calling_code" sort="integer"/> -->
 
 
 
