@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ontology name="Countries2020Ontology">
   
-  <!--<sort name="subject" dynamic="false"/>-->
   <sort name="sort_country" dynamic="true"/>
   <sort name="sort_region" dynamic="false"/>
   <sort name="sort_language" dynamic="true"/>
@@ -63,7 +62,6 @@
   <individual name="SAARC" sort="sort_regional_bloc"/>
   <individual name="USAN" sort="sort_regional_bloc"/>
 
-
   <!-- individuals: languages-->
   <individual name="es" sort="sort_language"/>
   <individual name="en" sort="sort_language"/>
@@ -86,6 +84,7 @@
 <!-- frågor att lägga till
 is selcted_country in selected_regional_bloc
 <predicate name="yn_regional_bloc" sort="string"/>
+<
 what is the calling code of selected_country
 <predicate name="calling_code" sort="string"/>
 which country has the calling code selected_calling_code

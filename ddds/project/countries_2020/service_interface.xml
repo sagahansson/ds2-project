@@ -18,7 +18,7 @@
     </query>
     <query name="neighbours">
       <parameters>
-        <parameter predicate="selected_country" format="grammar_entry"/>
+        <parameter predicate="selected_country" format="grammar_entry"/> 
       </parameters>
       <target>
         <http endpoint="http://http-service/neighbours"/>
@@ -50,7 +50,7 @@
     </query>
 
 
-    <!-- ska det verkligen vara format="grammar_entry" när det inte är selected_country? -->
+    <!-- in which countries is *** spoken-->
     <query name="search_by_language">
       <parameters>
         <parameter predicate="selected_language" format="grammar_entry"/>

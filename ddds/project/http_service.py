@@ -5,6 +5,7 @@ import json
 from flask import Flask, request
 from urllib.request import Request, urlopen
 from jinja2 import Environment
+import re
 #from restcountries import RestCountryApiV2 as rapi
 
 app = Flask(__name__)
@@ -177,8 +178,9 @@ def simple_query():
 def get_and_list(data):
 # takes a list, puts commas at the end of every element except last two, puts "and" between last two elements
 # helper to neighbours, language, search_by_language
-  last_two = data[-2:] # or only two if len(data) = 2
-  data = [n + ',' for n in data[:-2]]
+  last_two = [re.sub(r'\([^)]*\)', '', x)[:-1] if '(' in x else x for x in data[-2:]] # or only two if len(data) = 2
+  data = [re.sub(r'\([^)]*\)', '', x)[:-1]+',' if '(' in x else x+',' for x in data[:-2]]
+
   data.extend(last_two)
   data.insert(-1, 'and')
   return data
@@ -211,6 +213,7 @@ def neighbours():
   if len(data) > 1:
     data = get_and_list(data)
   data = ' '.join(data)
+  print(data)
   return query_response(value=None, grammar_entry=data)
 
 
@@ -230,12 +233,19 @@ def language():
   print(data)
   return query_response(value=data, grammar_entry=None)
 
+language_codes = {'french' : 'fra'}
 @app.route("/search_by_language", methods=['POST'])
 def search_by_language():
   # in which countries is selected_language spoken
   payload = request.get_json()
-  country = payload['context']['facts']['selected_language']['value']
-  data = get_data(country, search_by='lang')
+  print(payload)
+  try:
+    language = payload['context']['facts']['selected_language']['grammar_entry'][:3]
+    data = get_data(language, search_by='lang')
+  except:
+    language = payload['context']['facts']['selected_language']['grammar_entry'][:2]
+    data = get_data(language, search_by='lang')
+  print(data)
   data = [lang['name'] for lang in data]
   num_c = str(len(data))
   if len(data) > 1:
@@ -265,7 +275,9 @@ def yn_region():
   payload = request.get_json()
   country = payload['context']['facts']['selected_country']['grammar_entry']
   region =  payload['context']['facts']['selected_region']['value']
-  right_region = get_data(country)[0]['region']
+  right_region = get_data(country)[0]
+  if right_region['region'] == "Americas":
+    right_region = right_region['subregion']
   country = get_data(country)[0]['name']
   if right_region.lower() == region.lower():
     answer = 'Yes, ' + country + " is in " + right_region

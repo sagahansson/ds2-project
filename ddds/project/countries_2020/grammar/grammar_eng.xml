@@ -53,10 +53,14 @@
       <item>population in <slot predicate="selected_country" type="individual"/></item>
       <item>how much population <slot predicate="selected_country" type="individual"/></item>
       <item>population</item>
+      <item>the population of a country</item>
+      <item>what is the population of a particular country</item>
+      <item>i need to know population</item>
+      <item>what is population</item>
+      <item>how many people live in a country</item>
     </one-of>
   </question>
-  
-  <!--><question speaker="system" predicate="population" type="wh_question">the population</question>-->
+
   
   <answer speaker="system" predicate="population">The population of <slot predicate="selected_country"/> is <slot predicate="population"/></answer>
 
@@ -87,8 +91,12 @@
       <item><slot predicate="selected_country" type="individual"/> what is the capital</item>
       <item><slot predicate="selected_country" type="individual"/>'s capital</item>
       <item><slot predicate="selected_country" type="individual"/> capital</item>
-      <item>capital</item>
+      <item>the capital of a specific country</item>
+      <item>what the capital of a country is</item>
+      <item>tell me a country's capital</item>
+      <item>i want to know a capital</item>
       <item>a capital</item>
+      <item>capital</item>
     </one-of>
   </question>
     
@@ -109,20 +117,26 @@
       <item>what are the neighbours of <slot predicate="selected_country" type="individual"/></item>
       <item>countries that border to <slot predicate="selected_country" type="individual"/></item>
       <item>countries bordering to <slot predicate="selected_country" type="individual"/></item>
-      <item>bordering countries</item>
       <item>countries that share a border with <slot predicate="selected_country" type="individual"/></item>
       <item>neighbours of <slot predicate="selected_country" type="individual"/></item>
-      <item>neighbours</item>
-      <item>neighbouring countries</item>
       <item>what countries are neighbours to <slot predicate="selected_country" type="individual"/></item>
       <item><slot predicate="selected_country" type="individual"/>'s neighbours</item>
       <item><slot predicate="selected_country" type="individual"/>'s bordering countries</item>
       <item><slot predicate="selected_country" type="individual"/> neighbour countries</item>
+      <item>i want to know the neighbours of a country</item>
+      <item>i want to know the a country's neighbours</item>
+      <item>the neighbours of a particular country</item>
+      <item>neighbours</item>
+      <item>neighbouring countries</item>
+      <item>bordering countries</item>
     </one-of>
   </question>
+  
+  
     
-    <!--<question speaker="system" predicate="neighbours" type="wh_question">the neighbouring countries</question>-->
-    <answer speaker="system" predicate="neighbours"><slot predicate="selected_country"/> is bordered by <slot predicate="neighbours"/></answer>
+  <!--<slot predicate="selected_country"/> <slot predicate="neighbours"/>-->
+  
+  <answer speaker="system" predicate="neighbours">The country <slot predicate="selected_country"/> is bordered by <slot predicate="neighbours"/></answer>
 
 
   <!-- area -->
@@ -137,14 +151,18 @@
       <item><slot predicate="selected_country" type="individual"/> size</item>
       <item>size of <slot predicate="selected_country" type="individual"/></item>
       <item><slot predicate="selected_country" type="individual"/> how big</item>
-      <item>how big is it</item>
-      <item>what is the size of it</item>
-      <item>size of a country</item>
-      <item>size</item>
       <item><slot predicate="selected_country" type="individual"/>'s size</item>
       <item><slot predicate="selected_country" type="individual"/> how bigs is it</item>
       <item>is<slot predicate="selected_country" type="individual"/> a big country or small</item>
       <item><slot predicate="selected_country" type="individual"/> size of it</item>
+      <item>how big is it</item>
+      <item>what is the size of it</item>
+      <item>size of a country</item>
+      <item>size</item>
+      <item>the size of a country</item>
+      <item>how big a particular country is</item>
+      <item>what is the size of a specific country</item>
+      <item>a country's size</item>
     </one-of>
   </question>
     
@@ -171,6 +189,10 @@
       <item>what are the languages of <slot predicate="selected_country" type="individual"/></item>
       <item><slot predicate="selected_country" type="individual"/> what languages do they speak</item>
       <item>are different languages spoken in <slot predicate="selected_country" type="individual"/></item>
+      <item>what language is spoken in a country</item>
+      <item>i want to know what language is spoken in a particular country</item>
+      <item>i want to know the language of a particular country</item>
+      <item>tell me which languages they speak in a particular country</item>
       <item>language</item>
       <item>lang</item>
     </one-of>
@@ -202,6 +224,10 @@
       <item>what continent contains <slot predicate="selected_country" type="individual"/></item>
       <item>region</item>
       <item>continent</item>
+      <item>the region of a country</item>
+      <item>i want to know which continent a specific country is in</item>
+      <item>i would like to know in which region a country is located</item>
+      <item>the continent of a particular country</item>
     </one-of>
   </question>
 
@@ -228,10 +254,11 @@
       <item><slot predicate="selected_language" type="individual"/> how many countries speak it</item>
       <item>how many countries speak <slot predicate="selected_language" type="individual"/></item>
       <item>countries speaking <slot predicate="selected_language" type="individual"/></item>
-      <item>some countries that speak <slot predicate="selected_language" type="individual"/></item>
-      <item><slot predicate="selected_language" type="individual"/> talking countries</item>
       <item>in which countries can you talk <slot predicate="selected_language" type="individual"/></item>
       <item>countries that commmunicate in <slot predicate="selected_language" type="individual"/></item>
+      <item>the countries of a language</item>
+      <item>where a particular language is spoken</item>
+      <item>some countries that speak a certain language</item>
     </one-of>
   </question>
     
@@ -239,7 +266,7 @@
 
   <!-- search_by_regional_bloc -->
 
-  <question speaker="all" predicate="search_by_regional_bloc" type="wh_question">which countries are members of a certain regional bloc</question>
+  <question speaker="all" predicate="search_by_regional_bloc" type="wh_question">which countries are members of a certain regional block</question>
 
   <question speaker="user" predicate="search_by_regional_bloc" type="wh_question">
     <one-of>
@@ -263,11 +290,15 @@
       <item>states that are in the <slot predicate="selected_regional_bloc" type="individual"/></item>
       <item><slot predicate="selected_regional_bloc" type="individual"/></item>
       <item><slot predicate="selected_regional_bloc" type="individual"/>'s</item>
+      <item>which countries are in a certain regional block</item>
+      <item>the countries of a regional block</item>
+      <item>tell me what countries are in a regional block</item>
+      <item>what countries are members of a regional block</item>
     </one-of>
   </question>
     
 
-  <answer speaker="system" predicate="search_by_regional_bloc">The countries of <slot predicate="selected_regional_bloc"/> are <slot predicate="search_by_regional_bloc"/></answer>
+  <answer speaker="system" predicate="search_by_regional_bloc"><slot predicate="selected_regional_bloc"/> consists of <slot predicate="search_by_regional_bloc"/></answer>
 
   <!-- yn_region -->
 
@@ -276,10 +307,10 @@
   <question speaker="user" predicate="yn_region" type="wh_question">
     <one-of>
       <item>is <slot predicate="selected_country" type="individual"/> in <slot predicate="selected_region" type="individual"/></item>
-      <item>is <slot predicate="selected_country" type="individual"/> a member of <slot predicate="selected_region" type="individual"/></item>
+      <item>is <slot predicate="selected_country" type="individual"/> a part of <slot predicate="selected_region" type="individual"/></item>
       <item>is <slot predicate="selected_country" type="individual"/> part of the<slot predicate="selected_region" type="individual"/></item>
       <item><slot predicate="selected_country" type="individual"/> <slot predicate="selected_region" type="individual"/></item>
-      <item>can you tell me if <slot predicate="selected_country" type="individual"/> is a member  of <slot predicate="selected_region" type="individual"/></item>
+      <item>can you tell me if <slot predicate="selected_country" type="individual"/> is a part  of <slot predicate="selected_region" type="individual"/></item>
       <item>tell me if <slot predicate="selected_country" type="individual"/> is part of <slot predicate="selected_region" type="individual"/></item>
       <item>i would like to know if <slot predicate="selected_country" type="individual"/> is in the <slot predicate="selected_region" type="individual"/></item>
       <item><slot predicate="selected_region" type="individual"/> is <slot predicate="selected_country" type="individual"/> a part of it</item>
@@ -290,7 +321,10 @@
       <item>i need to know whether <slot predicate="selected_country" type="individual"/> is part of <slot predicate="selected_region" type="individual"/></item>
       <item>can you say if <slot predicate="selected_country" type="individual"/> is a part of <slot predicate="selected_region" type="individual"/></item>
       <item>tell me whether <slot predicate="selected_country" type="individual"/> is a part of the <slot predicate="selected_region" type="individual"/></item>
-
+      <item>i want to know if a specific country is in a region</item>
+      <item>country and region</item>
+      <item>if a country is in a particular region</item>
+      <item>can you tell me if a country is in a specific continent</item>
     </one-of>
   </question>
     
@@ -321,10 +355,10 @@
       <item>tell me the countries of a continent</item>
       <item>continent what countries</item>
       <item>continent information</item>
+      <item>what the countries of a specific continent are</item>
     </one-of>
   </question>
     
-    <!-- change to * are the members of * -->
     <answer speaker="system" predicate="region_two"><slot predicate="selected_region"/> consists of <slot predicate="region_two"/></answer>
 
 
@@ -479,16 +513,11 @@
   </individual>
 
 
-
-
 <!-- individuals: languages -->
   <individual name="es">
     <one-of>
       <item>Spanish</item>
       <item>spanish</item>
-      <item>español</item>
-      <item>espanol</item>
-      <item>es</item>
     </one-of>
   </individual>
 
@@ -496,7 +525,6 @@
     <one-of>
       <item>English</item>
       <item>english</item>
-      <item>en</item>
     </one-of>
   </individual>
 
@@ -504,9 +532,6 @@
     <one-of>
       <item>French</item>
       <item>french</item>
-      <item>francais</item>
-      <item>français</item>
-      <item>fr</item>
     </one-of>
   </individual>
 
@@ -514,10 +539,6 @@
     <one-of>
       <item>Greek</item>
       <item>greek</item>
-      <item>ellenika</item>
-      <item>elleniká</item>
-      <item>Ελληνικά</item>
-      <item>gr</item>
     </one-of>
   </individual>
 
@@ -525,10 +546,6 @@
     <one-of>
       <item>Finnish</item>
       <item>finnish</item>
-      <item>suomi</item>
-      <item>suomen kieli</item>
-      <item>finska</item>
-      <item>fi</item>
     </one-of>
   </individual>
 
@@ -623,6 +640,10 @@
       <item>the americas</item>
       <item>America</item>
       <item>america</item>
+      <item>south america</item>
+      <item>southern america</item>
+      <item>north america</item>
+      <item>northern america</item>
     </one-of>
   </individual>
   <individual name="asia">

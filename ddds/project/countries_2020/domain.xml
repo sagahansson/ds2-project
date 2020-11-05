@@ -34,7 +34,7 @@
       <invoke_service_query predicate="neighbours" type="wh_question"/>
     </plan>
   </goal>
-  <parameters predicate="population">
+  <parameters predicate="neighbours">
     <background predicate="selected_country"/>
   </parameters>
 
