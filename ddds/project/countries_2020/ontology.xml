@@ -15,7 +15,7 @@
   <sort name="search_by_language_string" dynamic="true"/>
   <sort name="search_by_regional_bloc_string" dynamic="true"/>
 
-  <!-- predicates: selected_X -->
+  <!-- predicates: selected_X -- what the user can choose -->
   <predicate name="selected_country" sort="sort_country"/>
   <predicate name="selected_region" sort="sort_region"/>
   <predicate name="selected_language" sort="sort_language"/>

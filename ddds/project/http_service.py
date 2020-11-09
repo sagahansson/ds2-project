@@ -238,14 +238,12 @@ language_codes = {'french' : 'fra'}
 def search_by_language():
   # in which countries is selected_language spoken
   payload = request.get_json()
-  print(payload)
   try:
     language = payload['context']['facts']['selected_language']['grammar_entry'][:3]
     data = get_data(language, search_by='lang')
   except:
     language = payload['context']['facts']['selected_language']['grammar_entry'][:2]
     data = get_data(language, search_by='lang')
-  print(data)
   data = [lang['name'] for lang in data]
   num_c = str(len(data))
   if len(data) > 1:
