@@ -69,12 +69,12 @@
       </target>
     </query>
     <!-- which countries are in **** -->
-    <query name="region_two">
+    <query name="search_by_region">
       <parameters>
         <parameter predicate="selected_region" format="grammar_entry"/>
       </parameters>
       <target>
-        <http endpoint="http://http-service/region_two"/>
+        <http endpoint="http://http-service/search_by_region"/>
       </target>
     </query>
     

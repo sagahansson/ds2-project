@@ -177,8 +177,8 @@ def simple_query():
 
 def get_and_list(data):
 # takes a list, puts commas at the end of every element except last two, puts "and" between last two elements
-# helper to neighbours, language, search_by_language
-  last_two = [re.sub(r'\([^)]*\)', '', x)[:-1] if '(' in x else x for x in data[-2:]] # or only two if len(data) = 2
+# helper to neighbours, language, search_by_language, search_by_region, search_by_regional_bloc
+  last_two = [re.sub(r'\([^)]*\)', '', x)[:-1] if '(' in x else x for x in data[-2:]] # re sub removes parenthesis + whatever's in it
   data = [re.sub(r'\([^)]*\)', '', x)[:-1]+',' if '(' in x else x+',' for x in data[:-2]]
 
   data.extend(last_two)
@@ -200,7 +200,6 @@ def population():
     data = str(data) + " Billion"
   else:
     data = str(data)
-    print(data)
   return query_response(value=None, grammar_entry=data)
 
 @app.route("/neighbours", methods=['POST'])
@@ -213,7 +212,6 @@ def neighbours():
   if len(data) > 1:
     data = get_and_list(data)
   data = ' '.join(data)
-  print(data)
   return query_response(value=None, grammar_entry=data)
 
 
@@ -233,7 +231,24 @@ def language():
   print(data)
   return query_response(value=data, grammar_entry=None)
 
-language_codes = {'french' : 'fra'}
+
+@app.route("/yn_region", methods=['POST'])
+def yn_region():
+  # is selected_country in selected_region
+  payload = request.get_json()
+  country = payload['context']['facts']['selected_country']['grammar_entry']
+  region =  payload['context']['facts']['selected_region']['value']
+  right_region = get_data(country)[0]
+  if right_region['region'] == "Americas":
+    right_region = right_region['subregion']
+  country = get_data(country)[0]['name']
+  if right_region.lower() == region.lower():
+    answer = 'Yes, ' + country + " is in " + right_region
+  else:
+    answer = 'No, ' + country + " is not in " + region.capitalize() + ", but in " + right_region
+  return query_response(value=answer, grammar_entry=None)
+
+
 @app.route("/search_by_language", methods=['POST'])
 def search_by_language():
   # in which countries is selected_language spoken
@@ -252,9 +267,10 @@ def search_by_language():
   data = ' '.join(data)
   return query_response(value=None, grammar_entry=data)
 
+
 @app.route("/search_by_regional_bloc", methods=['POST'])
 def search_by_regional_bloc():
-  # which countries are in selected_regional_blog (e.g. the eu)
+  # which countries are in selected_regional_bloc (e.g. the eu)
   payload = request.get_json()
   region = payload['context']['facts']['selected_regional_bloc']['value']
   data = get_data(region, search_by='regionalbloc')
@@ -267,24 +283,9 @@ def search_by_regional_bloc():
   print(f"payload: {payload}")
   return query_response(value=None, grammar_entry=data)
 
-@app.route("/yn_region", methods=['POST'])
-def yn_region():
-  # is selected_country in selected_region
-  payload = request.get_json()
-  country = payload['context']['facts']['selected_country']['grammar_entry']
-  region =  payload['context']['facts']['selected_region']['value']
-  right_region = get_data(country)[0]
-  if right_region['region'] == "Americas":
-    right_region = right_region['subregion']
-  country = get_data(country)[0]['name']
-  if right_region.lower() == region.lower():
-    answer = 'Yes, ' + country + " is in " + right_region
-  else:
-    answer = 'No, ' + country + " is not in " + region.capitalize() + ", but in " + right_region
-  return query_response(value=answer, grammar_entry=None)
 
-@app.route("/region_two", methods=['POST'])
-def region_two():
+@app.route("/search_by_region", methods=['POST'])
+def search_by_region():
   # which countries are in selected_region
   payload = request.get_json()
   region = payload['context']['facts']['selected_region']['value']

@@ -62,7 +62,9 @@
   </question>
 
   
-  <answer speaker="system" predicate="population">The population of <slot predicate="selected_country"/> is <slot predicate="population"/></answer>
+  <answer speaker="system" predicate="population">
+    The population of <slot predicate="selected_country"/> is <slot predicate="population"/>
+  </answer>
 
   <!-- capital -->
 
@@ -298,7 +300,7 @@
   </question>
     
 
-  <answer speaker="system" predicate="search_by_regional_bloc"><slot predicate="selected_regional_bloc"/> consists of <slot predicate="search_by_regional_bloc"/></answer>
+  <answer speaker="system" predicate="search_by_regional_bloc">The <slot predicate="selected_regional_bloc"/> consists of <slot predicate="search_by_regional_bloc"/></answer>
 
   <!-- yn_region -->
 
@@ -330,11 +332,11 @@
     
   <answer speaker="system" predicate="yn_region"><slot predicate="yn_region"/>.</answer>
 
-  <!-- region_two -->
+  <!-- search_by_region -->
 
-  <question speaker="all" predicate="region_two" type="wh_question">the continent</question>
+  <question speaker="all" predicate="search_by_region" type="wh_question">the countries of a continent are</question>
 
-  <question speaker="user" predicate="region_two" type="wh_question">
+  <question speaker="user" predicate="search_by_region" type="wh_question">
     <one-of>
       <item>which countries are in <slot predicate="selected_region" type="individual"/></item>
       <item>i need to know which countries are in <slot predicate="selected_region" type="individual"/></item>
@@ -359,7 +361,7 @@
     </one-of>
   </question>
     
-    <answer speaker="system" predicate="region_two"><slot predicate="selected_region"/> consists of <slot predicate="region_two"/></answer>
+    <answer speaker="system" predicate="search_by_region"><slot predicate="selected_region"/> consists of <slot predicate="search_by_region"/></answer>
 
 
 
@@ -560,9 +562,10 @@
 
   <individual name="COG">
     <one-of>
+      <item>Congo-Brazzaville</item>
       <item>Congo</item>
       <item>congo</item>
-      <item>Congo-Brazzaville</item>
+      <item>congo-brazzaville</item>
     </one-of>
   </individual>
 

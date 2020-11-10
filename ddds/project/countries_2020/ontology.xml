@@ -11,11 +11,11 @@
   <sort name="neighbours_string" dynamic="true"/>
   <sort name="area_string" dynamic="true"/>
   <sort name="region_string" dynamic="true"/>
-  <sort name="region_two_string" dynamic="true"/>
+  <sort name="search_by_region_string" dynamic="true"/>
   <sort name="search_by_language_string" dynamic="true"/>
   <sort name="search_by_regional_bloc_string" dynamic="true"/>
 
-  <!-- predicates: selected_X -- what the user can choose -->
+  <!-- predicates: selected_X: what the user can choose -->
   <predicate name="selected_country" sort="sort_country"/>
   <predicate name="selected_region" sort="sort_region"/>
   <predicate name="selected_language" sort="sort_language"/>
@@ -28,7 +28,7 @@
   <predicate name="area" sort="area_string"/>
   <predicate name="language" sort="string"/>
   <predicate name="region" sort="region_string"/>
-  <predicate name="region_two" sort="region_two_string"/>
+  <predicate name="search_by_region" sort="search_by_region_string"/>
 
   <!-- predicates: subjects: yn -->
   <!-- is selected_country in selected_region -->
